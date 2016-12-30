@@ -65,7 +65,8 @@
                 </configuration>
             </plugin>-->
 
-            <plugin>
+            <!--生亮版-->
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.6</version>
@@ -84,10 +85,10 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
             <!--标准打入引用jar,idea会打两个，一个有引一个无引-->
-            <!--<plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>2.4.3</version>
@@ -108,16 +109,16 @@
                                     </excludes>
                                 </filter>
                             </filters>
-                            &lt;!&ndash;指定运行jar包&ndash;&gt;
+                            <!--指定运行jar包-->
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>cn.ls.create.CreateJ</mainClass>
+                                    <mainClass>cn.ls.insert.MyBulkload</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
 
 
         </plugins>

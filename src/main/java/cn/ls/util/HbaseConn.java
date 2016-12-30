@@ -1,5 +1,7 @@
-package cn.ls.create;
+package cn.ls.util;
 
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
@@ -7,14 +9,12 @@ import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
-import org.apache.hadoop.hbase.client.HBaseAdmin;
-
 import java.io.IOException;
 
 /**
- * Created by Administrator on 2016/12/27.
+ * Created by Administrator on 2016/12/30.
  */
-public class CreateJ {
+public class HbaseConn {
 
     static Configuration config = null;
     static {
@@ -32,16 +32,12 @@ public class CreateJ {
         }
     }
 
-    public static void main(String[] args) throws IOException {
+    public static Connection getHbaseConn(){
+        return new HbaseConn().conn;
+    }
 
-//        HBaseAdmin admin = new HBaseAdmin(config);
-        Admin admin = null;
-        admin = new CreateJ().conn.getAdmin();
-        HTableDescriptor desc = new HTableDescriptor(args[0]);
-        HColumnDescriptor family1 = new HColumnDescriptor("f1");
-        desc.addFamily(family1);
-        admin.createTable(desc);
-
+    public static Configuration getHbaseConf(){
+        return config;
     }
 
 }
